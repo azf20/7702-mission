@@ -70,14 +70,14 @@ const Home = () => {
 
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <p className="text-sm text-base-content/70">Account Type</p>
+                      <p className="text-sm text-base-content/70 mb-1">Account Type</p>
                       <button className="btn btn-ghost btn-xs" title="Refresh status" onClick={refreshStatus}>
-                        <ArrowPathIcon className="w-4 h-4" />
+                        <ArrowPathIcon className="w-3 h-3" />
                       </button>
                     </div>
                     {accountType.type === "EOA" && (
                       <div className="flex flex-row items-center gap-x-3">
-                        <span className="font-medium text-lg">Regular Account</span>
+                        <span className="font-medium">Regular Account</span>
                         {!readyForUpgrade && (
                           <span
                             className="tooltip tooltip-bottom"
