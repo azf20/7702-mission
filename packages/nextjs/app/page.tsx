@@ -136,7 +136,7 @@ const Home = () => {
                           {!readyForUpgrade && (
                             <span
                               className={`${pillClass} bg-gray-400 text-white`}
-                              data-tip="Cannot initiate an upgrade. Your wallet or network may not support EIP-7702 yet. Check with your wallet provider for more information."
+                              data-tip="Cannot initiate an upgrade via EIP-5792. Check with your wallet provider for more information on their EIP-7702 support."
                             >
                               <InformationCircleIcon className="w-4 h-4" />
                               <span>Cannot initiate upgrade</span>
