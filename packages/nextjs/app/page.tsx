@@ -78,6 +78,14 @@ const Home = () => {
                     {accountType.type === "EOA" && (
                       <div className="flex flex-row items-center gap-x-3">
                         <span className="font-medium text-lg">Regular Account</span>
+                        {!readyForUpgrade && (
+                          <span
+                            className="tooltip tooltip-bottom"
+                            data-tip="Cannot initiate an upgrade. Your wallet or network may not support EIP-7702 yet. Check with your wallet provider for more information."
+                          >
+                            <InformationCircleIcon className="w-5 h-5 inline-block text-base-content/60 cursor-pointer" />
+                          </span>
+                        )}
                         {readyForUpgrade && (
                           <>
                             <button
