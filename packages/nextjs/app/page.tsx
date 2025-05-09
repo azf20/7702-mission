@@ -28,6 +28,7 @@ const Home = () => {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showDebugModal, setShowDebugModal] = useState(false);
   const balance = useBalance({ address: connectedAddress });
+  const pillClass = "px-3 py-1 text-xs font-semibold rounded tooltip tooltip-bottom flex items-center gap-1";
 
   return (
     <>
@@ -75,12 +76,18 @@ const Home = () => {
                       <div className="flex items-center gap-2">
                         <Address address={connectedAddress} />
                         {capabilitiesStatus === "supported" && (
-                          <span className="badge bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                          <span
+                            className={`${pillClass} bg-green-500 text-white`}
+                            data-tip="The connected wallet supports EIP-5792 (Wallet Capabilities)"
+                          >
                             5792 supported
                           </span>
                         )}
                         {capabilitiesStatus === "not_supported" && (
-                          <span className="badge bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                          <span
+                            className={`${pillClass} bg-red-500 text-white`}
+                            data-tip="The connected wallet does not support EIP-5792 (Wallet Capabilities)"
+                          >
                             5792 not supported
                           </span>
                         )}
@@ -128,10 +135,11 @@ const Home = () => {
                           <span className="font-medium">Regular Account</span>
                           {!readyForUpgrade && (
                             <span
-                              className="tooltip tooltip-bottom"
+                              className={`${pillClass} bg-gray-400 text-white`}
                               data-tip="Cannot initiate an upgrade. Your wallet or network may not support EIP-7702 yet. Check with your wallet provider for more information."
                             >
-                              <InformationCircleIcon className="w-5 h-5 inline-block text-base-content/60 cursor-pointer" />
+                              <InformationCircleIcon className="w-4 h-4" />
+                              <span>Cannot initiate upgrade</span>
                             </span>
                           )}
                           {readyForUpgrade && (
@@ -178,12 +186,10 @@ const Home = () => {
                             <span className="font-medium text-lg">Smart Account (7702-enabled)</span>
                             {isBatchEnabled && (
                               <span
-                                className="tooltip tooltip-bottom"
+                                className={`${pillClass} bg-green-500 text-white`}
                                 data-tip="Your wallet can make batched transactions"
                               >
-                                <span className="px-3 py-1 text-xs font-semibold rounded bg-green-500 text-white">
-                                  Batch-enabled
-                                </span>
+                                Batch-enabled
                               </span>
                             )}
                           </div>

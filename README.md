@@ -19,7 +19,7 @@ Live at [7702-checker.azfuller.com](https://7702-checker.azfuller.com)
 
 - **Supported Chains:**
   - This dapp is enabled for chains where EIP-7702 is active
-  - As of 2025-05-09, Ethereum, BSC, Gnosis and Sepolia are already live, and Superchain chains should be going live per the [Isthumus Hard Fork](https://docs.optimism.io/notices/upgrade-15)
+  - As of 2025-05-09, Ethereum, BSC, Gnosis and Sepolia are already live, and Superchain chains are going live per the [Isthumus Hard Fork](https://docs.optimism.io/notices/upgrade-15)
 
 ## Development
 
