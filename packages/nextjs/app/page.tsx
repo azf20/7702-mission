@@ -22,6 +22,7 @@ const Home = () => {
     refreshStatus,
     rawCode,
     capability,
+    capabilitiesResponse,
   } = useSmartAccount();
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showDebugModal, setShowDebugModal] = useState(false);
@@ -257,7 +258,7 @@ const Home = () => {
       {/* Debug Modal */}
       {showDebugModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-base-100 p-6 rounded-lg shadow-lg max-w-lg w-full">
+          <div className="bg-base-100 p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
             <h3 className="text-lg font-bold mb-2">Debug Info</h3>
             <div className="mb-4">
               <div className="mb-2 font-semibold">Raw Contract Code:</div>
@@ -267,6 +268,20 @@ const Home = () => {
               <div className="mb-2 font-semibold">Current Chain Capability:</div>
               <pre className="bg-base-200 p-2 rounded text-xs overflow-x-auto break-all">
                 {capability ? JSON.stringify(capability, null, 2) : "(none)"}
+              </pre>
+            </div>
+            <div className="mb-4">
+              <div className="mb-2 font-semibold">Connector Info:</div>
+              <pre className="bg-base-200 p-2 rounded text-xs overflow-x-auto break-all">
+                {connector
+                  ? JSON.stringify({ name: connector.name, id: connector.id, type: connector.type }, null, 2)
+                  : "(none)"}
+              </pre>
+            </div>
+            <div className="mb-4">
+              <div className="mb-2 font-semibold">All Capabilities Response:</div>
+              <pre className="bg-base-200 p-2 rounded text-xs overflow-x-auto break-all">
+                {capabilitiesResponse ? JSON.stringify(capabilitiesResponse, null, 2) : "(none)"}
               </pre>
             </div>
             <div className="flex justify-end">

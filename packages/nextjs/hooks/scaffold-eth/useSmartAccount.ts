@@ -104,6 +104,7 @@ export function useSmartAccount() {
   const isPending = isSendCallsPending || (!!data?.id && waitStatus.isPending);
 
   const capability = chain ? capabilities?.data?.[chain.id] : undefined;
+  const capabilitiesResponse = capabilities?.data;
 
   return {
     accountType,
@@ -119,5 +120,6 @@ export function useSmartAccount() {
     isWaiting,
     refreshStatus,
     capability,
+    capabilitiesResponse,
   };
 }
