@@ -23,6 +23,7 @@ const Home = () => {
     rawCode,
     capability,
     capabilitiesResponse,
+    capabilitiesStatus,
   } = useSmartAccount();
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showDebugModal, setShowDebugModal] = useState(false);
@@ -73,6 +74,16 @@ const Home = () => {
                       <p className="text-sm text-base-content/70 mb-1">Connected Address</p>
                       <div className="flex items-center gap-2">
                         <Address address={connectedAddress} />
+                        {capabilitiesStatus === "supported" && (
+                          <span className="badge bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            5792 supported
+                          </span>
+                        )}
+                        {capabilitiesStatus === "not_supported" && (
+                          <span className="badge bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            5792 not supported
+                          </span>
+                        )}
                         <button
                           className="btn btn-secondary btn-sm"
                           onClick={() => disconnect()}
@@ -258,7 +269,14 @@ const Home = () => {
       {/* Debug Modal */}
       {showDebugModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-base-100 p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto">
+          <div className="bg-base-100 p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto relative">
+            <button
+              className="btn btn-ghost btn-xs absolute top-2 right-2 z-10"
+              onClick={() => setShowDebugModal(false)}
+              aria-label="Close debug modal"
+            >
+              Close
+            </button>
             <h3 className="text-lg font-bold mb-2">Debug Info</h3>
             <div className="mb-4">
               <div className="mb-2 font-semibold">Raw Contract Code:</div>
@@ -283,11 +301,6 @@ const Home = () => {
               <pre className="bg-base-200 p-2 rounded text-xs overflow-x-auto break-all">
                 {capabilitiesResponse ? JSON.stringify(capabilitiesResponse, null, 2) : "(none)"}
               </pre>
-            </div>
-            <div className="flex justify-end">
-              <button className="btn btn-ghost" onClick={() => setShowDebugModal(false)}>
-                Close
-              </button>
             </div>
           </div>
         </div>

@@ -106,6 +106,19 @@ export function useSmartAccount() {
   const capability = chain ? capabilities?.data?.[chain.id] : undefined;
   const capabilitiesResponse = capabilities?.data;
 
+  console.log(capabilities.isError, capabilities.error);
+
+  // Refetch capabilities when the chain changes
+  useEffect(() => {
+    if (chain && capabilities?.refetch) {
+      capabilities.refetch();
+    }
+  }, [chain?.id]);
+
+  let capabilitiesStatus: "supported" | "not_supported" | "unknown" = "unknown";
+  if (capabilities?.isSuccess) capabilitiesStatus = "supported";
+  else if (capabilities?.isError) capabilitiesStatus = "not_supported";
+
   return {
     accountType,
     contractCode,
@@ -121,5 +134,6 @@ export function useSmartAccount() {
     refreshStatus,
     capability,
     capabilitiesResponse,
+    capabilitiesStatus,
   };
 }
