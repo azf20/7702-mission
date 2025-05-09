@@ -103,9 +103,12 @@ export function useSmartAccount() {
   const isWaiting = waitStatus.status === "pending";
   const isPending = isSendCallsPending || (!!data?.id && waitStatus.isPending);
 
+  const capability = chain ? capabilities?.data?.[chain.id] : undefined;
+
   return {
     accountType,
     contractCode,
+    rawCode: contractCode,
     isLoading,
     activateAccount,
     readyForUpgrade,
@@ -115,5 +118,6 @@ export function useSmartAccount() {
     waitStatus,
     isWaiting,
     refreshStatus,
+    capability,
   };
 }
