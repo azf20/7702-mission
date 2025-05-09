@@ -10,7 +10,7 @@ import { NetworkOptions } from "~~/components/scaffold-eth/RainbowKitCustomConne
 import { useSmartAccount } from "~~/hooks/scaffold-eth/useSmartAccount";
 
 const Home = () => {
-  const { address: connectedAddress, chain } = useAccount();
+  const { address: connectedAddress, chain, connector } = useAccount();
   const { disconnect } = useDisconnect();
   const { accountType, activateAccount, readyForUpgrade, isBatchEnabled, isPending, waitStatus, refreshStatus } =
     useSmartAccount();
@@ -165,6 +165,15 @@ const Home = () => {
             <p className="mb-4">
               This will prompt your wallet to upgrade your account. Approve the upgrade to proceed.
             </p>
+            {connector?.name === "MetaMask" && (
+              <div className="mb-4 p-3 rounded bg-warning/20 text-warning-content text-sm border border-warning flex items-center gap-2">
+                <InformationCircleIcon className="w-5 h-5 inline-block text-warning" />
+                <span>
+                  <b>MetaMask users:</b> If you continue, but then reject the Smart Account option, you may not be able
+                  to retry.
+                </span>
+              </div>
+            )}
             <div className="flex justify-end gap-2">
               <button className="btn btn-ghost" onClick={() => setShowUpgradeModal(false)}>
                 Cancel
