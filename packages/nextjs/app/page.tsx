@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useAccount } from "wagmi";
+import { useAccount, useBalance } from "wagmi";
 import { useDisconnect } from "wagmi";
 import { ArrowPathIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
@@ -15,6 +15,7 @@ const Home = () => {
   const { accountType, activateAccount, readyForUpgrade, isBatchEnabled, isPending, waitStatus, refreshStatus } =
     useSmartAccount();
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const balance = useBalance({ address: connectedAddress });
 
   return (
     <>
@@ -82,13 +83,15 @@ const Home = () => {
                             <button
                               className="btn btn-primary btn-sm shadow-lg font-bold"
                               onClick={() => setShowUpgradeModal(true)}
-                              disabled={isPending}
+                              disabled={isPending || !balance.data || balance.data.value === 0n}
                             >
                               {isPending ? (
                                 <span className="flex items-center gap-2">
                                   <span className="loading loading-spinner loading-xs"></span>
                                   Activating...
                                 </span>
+                              ) : !balance.data || balance.data.value === 0n ? (
+                                "Insufficient balance to activate"
                               ) : (
                                 "Activate Smart Account"
                               )}
