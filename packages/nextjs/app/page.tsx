@@ -150,7 +150,7 @@ const Home = () => {
                       {accountType.type === "EOA" && (
                         <div className="flex flex-row items-center gap-x-3">
                           <span className="font-medium">Regular Account</span>
-                          {!readyForUpgrade && (
+                          {!readyForUpgrade && chainIs7702Enabled && (
                             <span
                               className={`${pillClass} bg-gray-400 text-white`}
                               data-tip="Cannot initiate an upgrade via EIP-5792. Check with your wallet provider for more information on their EIP-7702 support."

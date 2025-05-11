@@ -119,8 +119,6 @@ export function useSmartAccount() {
   const capability = chain ? capabilities?.data?.[chain.id] : undefined;
   const capabilitiesResponse = capabilities?.data;
 
-  console.log(capabilities.isError, capabilities.error);
-
   // Refetch capabilities when the chain changes
   useEffect(() => {
     if (chain && capabilities?.refetch) {

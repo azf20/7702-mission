@@ -44,6 +44,7 @@ The core logic for account detection, capability fetching, and upgrade is encaps
 - Tracks the status of the upgrade (pending, confirmed, error) using `useSendCalls` and `useWaitForCallsStatus`.
 - Exposes a `refreshStatus` callback to manually refetch account status and capabilities.
 - Handles all query invalidation and status logic in one place for a clean UI experience.
+- Checks if the current chain supports EIP-7702 by making an `isSevenSevenZeroTwo` call on a dummy delegate account (using stateOverrides)
 
 **Returns:**
 - `accountType`: The parsed account type and delegated address (if any)
@@ -53,6 +54,7 @@ The core logic for account detection, capability fetching, and upgrade is encaps
 - `isPending`: True if an upgrade is in progress or being confirmed
 - `waitStatus`: Status and data for the current upgrade call
 - `refreshStatus`: Function to manually refresh account status
+- `chainIs7702Enabled`: Whether the current chain supports EIP-7702
 
 ---
 
