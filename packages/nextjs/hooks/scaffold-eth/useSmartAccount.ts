@@ -1,10 +1,23 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { parseEther } from "viem";
+import { encodeFunctionData, parseEther } from "viem";
 import { useAccount, useCapabilities, usePublicClient, useSendCalls, useWaitForCallsStatus } from "wagmi";
 
 const DELEGATION_PREFIX = "0xef0100";
+const DUMMY_DELEGATE_CODE =
+  "0x6080604052348015600e575f5ffd5b50600436106026575f3560e01c8063c1cd785614602a575b5f5ffd5b60306044565b604051603b91906064565b60405180910390f35b5f6001905090565b5f8115159050919050565b605e81604c565b82525050565b5f60208201905060755f8301846057565b9291505056fea2646970667358221220265103185dec648e9bcac4dd322c8482f2923aa8ab542d2233f257916b73cd6a64736f6c634300081c0033" as `0x${string}`;
+const DUMMY_DELEGATE_ADDRESS = "0x1234567890abcdef1234567890abcdef12345678" as `0x${string}`;
+
+const isSevenSevenZeroTwoAbi = [
+  {
+    type: "function",
+    name: "isSevenSevenZeroTwo",
+    inputs: [],
+    outputs: [{ name: "", type: "bool", internalType: "bool" }],
+    stateMutability: "pure",
+  },
+];
 
 export type SmartAccountType =
   | { type: "EOA" }
@@ -119,6 +132,44 @@ export function useSmartAccount() {
   if (capabilities?.isSuccess) capabilitiesStatus = "supported";
   else if (capabilities?.isError) capabilitiesStatus = "not_supported";
 
+  // Add new query for chain 7702 support
+  const { data: chainIs7702Enabled } = useQuery({
+    queryKey: ["chainIs7702Enabled", chain?.id],
+    queryFn: async () => {
+      if (!publicClient || !chain || !connectedAddress) return false;
+
+      try {
+        const connectedAccount7702Code = (DELEGATION_PREFIX + DUMMY_DELEGATE_ADDRESS.slice(2)) as `0x${string}`;
+
+        const data = encodeFunctionData({
+          abi: isSevenSevenZeroTwoAbi,
+          functionName: "isSevenSevenZeroTwo",
+        });
+
+        const result = await publicClient.call({
+          to: connectedAddress,
+          data,
+          stateOverride: [
+            {
+              address: DUMMY_DELEGATE_ADDRESS,
+              code: DUMMY_DELEGATE_CODE,
+            },
+            {
+              address: connectedAddress,
+              code: connectedAccount7702Code,
+            },
+          ],
+        });
+        // The result will be a hex string representing a boolean
+        return result.data === "0x0000000000000000000000000000000000000000000000000000000000000001";
+      } catch (error) {
+        console.error("Error checking chain 7702 support:", error);
+        return false;
+      }
+    },
+    enabled: !!publicClient && !!chain,
+  });
+
   return {
     accountType,
     contractCode,
@@ -135,5 +186,6 @@ export function useSmartAccount() {
     capability,
     capabilitiesResponse,
     capabilitiesStatus,
+    chainIs7702Enabled,
   };
 }

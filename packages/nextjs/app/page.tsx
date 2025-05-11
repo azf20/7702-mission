@@ -24,6 +24,7 @@ const Home = () => {
     capability,
     capabilitiesResponse,
     capabilitiesStatus,
+    chainIs7702Enabled,
   } = useSmartAccount();
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showDebugModal, setShowDebugModal] = useState(false);
@@ -108,6 +109,22 @@ const Home = () => {
                           <span className="font-medium">{chain.name}</span>
                         ) : (
                           <span className="text-warning font-semibold text-sm">Unconfigured Network</span>
+                        )}
+                        {chainIs7702Enabled && (
+                          <span
+                            className={`${pillClass} bg-green-500 text-white`}
+                            data-tip="This chain supports EIP-7702 (Smart Account Upgrades)"
+                          >
+                            7702 supported
+                          </span>
+                        )}
+                        {chainIs7702Enabled === false && (
+                          <span
+                            className={`${pillClass} bg-red-500 text-white`}
+                            data-tip="This chain does not support EIP-7702 (Smart Account Upgrades)"
+                          >
+                            7702 not supported
+                          </span>
                         )}
                         <div className="dropdown dropdown-end">
                           <div tabIndex={0} role="button" className="btn btn-secondary btn-sm">

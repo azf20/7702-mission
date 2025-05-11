@@ -25,6 +25,7 @@ const scaffoldConfig = {
     chains.zora,
     chains.soneium,
     chains.mode,
+    chains.arbitrum,
   ],
 
   // The interval at which your front-end polls the RPC servers for new data
