@@ -16,8 +16,12 @@ type HeaderMenuLink = {
 
 export const menuLinks: HeaderMenuLink[] = [
   {
-    label: "Home",
+    label: "Wallet",
     href: "/",
+  },
+  {
+    label: "Chains",
+    href: "/chains",
   },
 ];
 
@@ -66,11 +70,26 @@ export const Header = () => {
           <div className="flex relative w-10 h-10">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.png" />
           </div>
-          <div className="flex flex-col">
+          <div className="hidden sm:flex flex-col">
             <span className="font-bold leading-tight">7702 checker</span>
             <span className="text-xs">Are you smart yet?</span>
           </div>
         </Link>
+        {/* Desktop menu */}
+        <ul className="hidden lg:flex menu menu-horizontal gap-2 px-1">
+          <HeaderMenuLinks />
+        </ul>
+        {/* Burger menu for mobile */}
+        <details ref={burgerMenuRef} className="dropdown dropdown-bottom lg:hidden ml-2">
+          <summary className="btn btn-ghost btn-circle">
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </summary>
+          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40">
+            <HeaderMenuLinks />
+          </ul>
+        </details>
       </div>
       <div className="navbar-end grow mr-4">
         <RainbowKitCustomConnectButton />
