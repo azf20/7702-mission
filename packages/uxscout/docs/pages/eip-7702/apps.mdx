@@ -1,0 +1,21 @@
+# Apps
+
+Apps themselves don't need to adopt EIP-7702 directly, but they can now offer smart account capabilities to all user accounts (as long as they are EIP-7702 enabled, or smart contract wallets).
+
+Apps can do this in several ways:
+
+| Method | Description | Providers |
+|:-------|:------------|:----------|
+| [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792) | New `sendCalls` endpoint for making onchain transactions, supporting batch transactions and capabilities like paymasters ([EIP-7677](https://eips.ethereum.org/EIPS/eip-7677)) | [Viem](https://viem.sh/), [thirdweb](https://thirdweb.com/) |
+| [EIP-4337](https://eips.ethereum.org/EIPS/eip-4337) | Alt mempool for account abstraction | [Biconomy](https://www.biconomy.io/), [Pimlico](https://www.pimlico.io/), [Alchemy](https://www.alchemy.com/), [Candide](https://candide.dev/) |
+| Other EIPs | Integrating [ERC-7710](https://eips.ethereum.org/EIPS/eip-7710) (Smart Contract Delegation) and [ERC-7821](https://eips.ethereum.org/EIPS/eip-7821) (Minimal Batch Executor Interface) and others | [Viem Experimental](https://viem.sh/experimental) |
+| Product-based | As well as standard-based approaches, some platforms offer custom smart account functionality | |
+
+In all cases, apps need to decide how they will handle users without smart accounts (because their wallet does not yet support them, or because they opt out). This might mean not supporting those users, or providing graceful alternative flows. These might look like existing experiences (for example "approve / swap"), but backwards compatibility is also offered by (for example) the new `experimental_fallback` parameter for Viem's `sendCalls` method ([PR](https://github.com/wevm/viem/pull/3648)).
+
+The following are some apps which have integrated EIP-5792 to support batched calls and other wallet capabilities for their users:
+
+- [revoke.cash](https://revoke.cash/)
+- [Ekubo](https://evm.ekubo.org/)
+- [Uniswap](https://app.uniswap.org/swap)
+- [LI.FI](https://li.fi/)

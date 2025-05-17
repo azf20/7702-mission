@@ -1,0 +1,64 @@
+# Wallets
+
+Wallet adoption is essential for the success of EIP-7702. This page tracks the adoption status across different wallet types and providers.
+
+## External Software Wallets
+
+| Provider | Status | Notes |
+|:---------|:------:|:------|
+| [Metamask](https://metamask.io) | ✅ | Supported on Mainnet, BSC, Gnosis, |
+| [Ambire](https://www.ambire.com/) | ✅ | EIP-7702 opt-in by default |
+| [OKX Wallet](https://web3.okx.com/) | ✅ | |
+| [Bitget Wallet](https://web3.bitget.com/en) | ✅ | |
+| [Porto](https://porto.sh/) | 🔄 | Pending release |
+| [Uniswap](https://wallet.uniswap.org/) | 🔄 | |
+| [Coinbase Wallet](https://www.coinbase.com/en-gb/wallet) | 🔄 | |
+| [Trust Wallet](https://trustwallet.com/) | 🔄 | [Announcement](https://x.com/TrustWallet/status/1920076571064389771) |
+| [Family](https://family.co/) | ❓ | |
+| [Phantom](https://phantom.com/en-GB) | ❓ | |
+| [Rabby](https://rabby.io/) | ❓ | |
+| [Rainbow](https://rainbow.me/en/) | ❓ | |
+| [Zeal](https://www.zeal.app/) | ❓ | |
+
+## Embedded Wallets
+
+| Provider | Status | Docs |
+|:---------|:------:|:------|
+| [Privy](https://www.privy.io/) | ✅ | [Integrating with EIP-7702](https://docs.privy.io/recipes/react/eip-770) |
+| [Openfort](https://www.openfort.io/) | ✅ | [Exploring EIP-7702](https://www.openfort.io/blog/erc7702-part1) |
+| [Turnkey](http://turnkey.com/) | ✅ | [Adding Type 4 support](https://docs.turnkey.com/networks/ethereum#eip-7702-type-4-support) |
+| [Dynamic](https://www.dynamic.xyz) | ✅ | [EIP-7702 example](https://docs.dynamic.xyz/smart-wallets/smart-wallet-providers/zerodev#complete-eip-7702-example) |
+| [Para](https://www.getpara.com/) | ❓ | |
+| [Magic](https://magic.link/docs/wallets/overview) | ❓ | |
+
+## Hardware Wallets
+
+| Provider | Status | Notes |
+|:---------|:------:|:------|
+| Ledger | 🔄 | [Announcement](https://www.ledger.com/blog-pectra-upgrade-announcement), will support EF-approved contracts|
+| Trezor | 🔄 | [WIP PR](https://github.com/trezor/trezor-firmware/pull/4945) |
+
+## Implementation Considerations
+
+Wallets have a range of decisions to make as they offer EIP-7702 support.
+
+### Smart Account Contract Selection
+Wallets need to choose a smart account contract implementation. As well as the usual "build or buy" decision, considerations include:
+- Functionality requirements
+- Security features
+- Chain deployment strategy
+- Gas optimization
+
+### Delegation UX
+A new EOA presents some decisions for the wallet in terms of user experience:
+- Opt-in vs opt-out approach
+- Chain-specific vs wallet-wide delegation
+- Transaction handling (relayed vs user-signed)
+
+### Smart Account UX
+Once an EOA has an EIP-7702 delegation, wallets can potentially offer significantly enhanced user experiences, such as transaction batching, gas and chain abstraction and granular account permissions.
+- Basic EIP-5792 integration
+- Paymaster support
+- Sub-accounts
+- Session keys
+- [Additional features to be determined]

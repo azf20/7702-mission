@@ -1,5 +1,5 @@
 {
-  "name": "se-2",
+  "name": "7702-mission",
   "version": "0.0.1",
   "private": true,
   "workspaces": {
@@ -8,19 +8,19 @@
     ]
   },
   "scripts": {
-    "start": "yarn workspace @se-2/nextjs dev",
-    "next:lint": "yarn workspace @se-2/nextjs lint",
-    "next:format": "yarn workspace @se-2/nextjs format",
-    "next:check-types": "yarn workspace @se-2/nextjs check-types",
-    "next:build": "yarn workspace @se-2/nextjs build",
-    "next:serve": "yarn workspace @se-2/nextjs serve",
+    "start": "yarn workspace @7702-mission/7702-checker dev",
+    "next:lint": "yarn workspace @7702-mission/7702-checker lint",
+    "next:format": "yarn workspace @7702-mission/7702-checker format",
+    "next:check-types": "yarn workspace @7702-mission/7702-checker check-types",
+    "next:build": "yarn workspace @7702-mission/7702-checker build",
+    "next:serve": "yarn workspace @7702-mission/7702-checker serve",
     "format": "yarn next:format",
     "postinstall": "husky install",
     "precommit": "lint-staged",
-    "vercel": "yarn workspace @se-2/nextjs vercel",
-    "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
-    "vercel:login": "yarn workspace @se-2/nextjs vercel:login",
-    "ipfs": "yarn workspace @se-2/nextjs ipfs"
+    "vercel": "yarn workspace @7702-mission/7702-checker vercel",
+    "vercel:yolo": "yarn workspace @7702-mission/7702-checker vercel:yolo",
+    "vercel:login": "yarn workspace @7702-mission/7702-checker vercel:login",
+    "ipfs": "yarn workspace @7702-mission/7702-checker ipfs"
   },
   "packageManager": "yarn@3.2.3",
   "devDependencies": {
