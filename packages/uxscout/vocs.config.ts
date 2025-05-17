@@ -7,6 +7,23 @@ export default defineConfig({
   title: "UX Scout",
   iconUrl: "/icon.png",
   logoUrl: "/logo.png",
+  ogImageUrl:
+    "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
+  socials: [
+    {
+      icon: "github",
+      link: "https://github.com/azf20/7702-mission",
+    },
+    {
+      icon: "x",
+      link: "https://x.com/azacharyf",
+    },
+  ],
+  editLink: {
+    pattern:
+      "https://github.com/azf20/7702-mission/edit/main/packages/uxscout/docs/pages/:path",
+    text: "Edit on GitHub",
+  },
   sidebar: {
     "/": [
       {

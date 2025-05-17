@@ -10,15 +10,15 @@ This monorepo contains two packages:
 
 A dApp to check and upgrade Ethereum accounts to EIP-7702-enabled smart accounts. Built with Scaffold-ETH 2.
 
-Live at [7702-checker.azfuller.com](https://7702-checker.azfuller.com)
+Live at [7702checker.azfuller.com](https://7702-checker.azfuller.com)
 
 [View detailed documentation →](packages/7702-checker/README.md)
 
 ## 📚 uxscout
 
-A documentation site tracking EIP-7702 adoption across the ecosystem and showcasing demos of apps using the new capabilities.
+A documentation site tracking ux adoption & innovation across the ecosystem and showcasing demos of apps using the new capabilities.
 
-Live at [7702.uxscout.xyz](https://7702.uxscout.xyz)
+Live at [uxscout.xyz](https://uxscout.xyz)
 
 ## Development
 
