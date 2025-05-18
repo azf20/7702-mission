@@ -1,6 +1,6 @@
 # Apps
 
-Apps themselves don't need to adopt EIP-7702 directly, but they can now offer smart account capabilities to all user accounts (as long as they are EIP-7702 enabled, or smart contract wallets).
+Apps themselves don't need to adopt EIP-7702 directly, but they can now offer smart account capabilities to all user accounts (as long as they are EIP-7702 enabled, or using smart contract wallets).
 
 Apps can do this in several ways:
 
@@ -11,11 +11,13 @@ Apps can do this in several ways:
 | Other EIPs | Integrating [ERC-7710](https://eips.ethereum.org/EIPS/eip-7710) (Smart Contract Delegation) and [ERC-7821](https://eips.ethereum.org/EIPS/eip-7821) (Minimal Batch Executor Interface) and others | [Viem Experimental](https://viem.sh/experimental) |
 | Product-based | As well as standard-based approaches, some platforms offer custom smart account functionality | |
 
+The lowest-hanging fruit for app developers are situations where a user has to make multiple transactions, such as approving ERC20 tokens before making a swap or other action - with smart accounts, these separate calls can be batched in one transaction.
+
 In all cases, apps need to decide how they will handle users without smart accounts (because their wallet does not yet support them, or because they opt out). This might mean not supporting those users, or providing graceful alternative flows. These might look like existing experiences (for example "approve / swap"), but backwards compatibility is also offered by (for example) the new `experimental_fallback` parameter for Viem's `sendCalls` method ([PR](https://github.com/wevm/viem/pull/3648)).
 
 The following are some apps which have integrated EIP-5792 to support batched calls and other wallet capabilities for their users:
 
-- [revoke.cash](https://revoke.cash/)
-- [Ekubo](https://evm.ekubo.org/)
-- [Uniswap](https://app.uniswap.org/swap)
+- [revoke.cash](https://revoke.cash/) - [flow example](/examples/apps/revoke-cash)
+- [Ekubo](https://evm.ekubo.org/) - [flow example](/examples/apps/ekubo)
+- [Uniswap](https://app.uniswap.org/swap) - [flow example](/examples/apps/uniswap)
 - [LI.FI](https://li.fi/)

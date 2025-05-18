@@ -9,6 +9,13 @@ export default defineConfig({
   logoUrl: "/logo.png",
   ogImageUrl:
     "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
+  head: (
+    <script
+      defer
+      data-domain="uxscout.xyz"
+      src="https://plausible.io/js/script.js"
+    ></script>
+  ),
   socials: [
     {
       icon: "github",
@@ -87,16 +94,16 @@ export default defineConfig({
         collapsed: false,
         items: [
           {
+            text: "revoke.cash",
+            link: "/examples/apps/revoke-cash",
+          },
+          {
             text: "Ekubo",
             link: "/examples/apps/ekubo",
           },
           {
             text: "Uniswap",
             link: "/examples/apps/uniswap",
-          },
-          {
-            text: "revoke.cash",
-            link: "/examples/apps/revoke-cash",
           },
         ],
       },
