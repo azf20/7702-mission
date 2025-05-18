@@ -9,13 +9,17 @@ export default defineConfig({
   logoUrl: "/logo.png",
   ogImageUrl:
     "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
-  head: (
-    <script
-      defer
-      data-domain="uxscout.xyz"
-      src="https://plausible.io/js/script.js"
-    ></script>
-  ),
+  head() {
+    return (
+      <>
+        <script
+          defer
+          data-domain="uxscout.xyz"
+          src="https://plausible.io/js/script.js"
+        ></script>
+      </>
+    );
+  },
   socials: [
     {
       icon: "github",
