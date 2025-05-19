@@ -80,6 +80,10 @@ export default defineConfig({
         collapsed: false,
         items: [
           {
+            text: "Overview",
+            link: "/examples",
+          },
+          {
             text: "revoke.cash",
             link: "/examples/apps/revoke-cash",
           },
