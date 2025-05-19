@@ -77,24 +77,6 @@ export default defineConfig({
       },
       {
         text: "Examples",
-        link: "/examples",
-      },
-    ],
-    "/examples": [
-      {
-        text: "Home",
-        link: "/",
-      },
-      {
-        text: "EIP-7702",
-        link: "/eip-7702/overview",
-      },
-      {
-        text: "Examples",
-        link: "/examples",
-      },
-      {
-        text: "Apps",
         collapsed: false,
         items: [
           {
