@@ -103,6 +103,10 @@ export default defineConfig({
             text: "Cabana",
             link: "/examples/apps/cabana",
           },
+          {
+            text: "Superbridge",
+            link: "/examples/apps/superbridge",
+          },
         ],
       },
     ],
