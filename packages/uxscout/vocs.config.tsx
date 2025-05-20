@@ -95,6 +95,14 @@ export default defineConfig({
             text: "Uniswap",
             link: "/examples/apps/uniswap",
           },
+          {
+            text: "Jumper Exchange",
+            link: "/examples/apps/jumper-exchange",
+          },
+          {
+            text: "Cabana",
+            link: "/examples/apps/cabana",
+          },
         ],
       },
     ],
