@@ -107,6 +107,10 @@ export default defineConfig({
             text: "Superbridge",
             link: "/examples/apps/superbridge",
           },
+          {
+            text: "Ask Gina",
+            link: "/examples/apps/ask-gina",
+          },
         ],
       },
     ],
