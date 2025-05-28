@@ -111,6 +111,10 @@ export default defineConfig({
             text: "Ask Gina",
             link: "/examples/apps/ask-gina",
           },
+          {
+            text: "Vaults.fyi",
+            link: "/examples/apps/vaults-fyi",
+          },
         ],
       },
     ],
