@@ -23,7 +23,7 @@ export default defineConfig({
   socials: [
     {
       icon: "github",
-      link: "https://github.com/azf20/7702-mission",
+      link: "https://github.com/azf20/7702-mission/tree/main/packages/uxscout",
     },
     {
       icon: "x",
