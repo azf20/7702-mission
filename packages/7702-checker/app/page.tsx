@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ExperimentalSection } from "./components/ExperimentalSection";
 import { useAccount, useBalance } from "wagmi";
 import { useDisconnect } from "wagmi";
 import { ArrowPathIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
@@ -76,6 +77,9 @@ const Home = () => {
                       <p className="text-sm text-base-content/70 mb-1">Connected Address</p>
                       <div className="flex items-center gap-2">
                         <Address address={connectedAddress} />
+                        <span className="text-sm text-base-content/60">
+                          via {connector?.name || connector?.id || "Unknown"}
+                        </span>
                         {capabilitiesStatus === "supported" && (
                           <span
                             className={`${pillClass} bg-green-500 text-white`}
@@ -222,6 +226,8 @@ const Home = () => {
                         <span className="font-medium text-lg">Smart Contract Account</span>
                       )}
                     </div>
+
+                    <ExperimentalSection />
                   </div>
                 </div>
                 <div className="mt-8 flex flex-col items-center gap-2 text-sm text-base-content/60">
