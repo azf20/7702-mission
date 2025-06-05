@@ -1,0 +1,26 @@
+# Ambire
+
+## Overview
+
+Ambire is a Web3 wallet that enables smart wallet features for EOA accounts via EIP-7702, providing a fast, secure, and reliable experience.
+
+| Resource | Link |
+|:---------|:-----|
+| Application | [Ambire](https://www.ambire.com/) |
+| Documentation | [Documentation](https://docs.ambire.com/) |
+| Code | [github.com/AmbireTech](https://github.com/AmbireTech) |
+
+## Smart Account Settings
+
+*Updated on 2025-06-05*
+
+<video controls>
+  <source src="https://content.uxscout.xyz/ambire-smart-account-settings-2025-06-05.mp4" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
+
+Ambire's account settings provide a clear overview of your account's smart status across chains, including whether you are using a different wallet's smart account (for example Metamask).
+
+There is a clear action to Enable or Revoke, but this is a bit inefficient in the case where a different wallet's implementation is used (you need to make two transactions, once to revoke and then to enable, when you could simply make a single type 4 transaction to override with the Ambire wallet).
+
+Switching transactions are paid for by the user. Further testing suggests that the revocation may not currently be working as expected.

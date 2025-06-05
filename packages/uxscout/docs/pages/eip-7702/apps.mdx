@@ -13,7 +13,7 @@ Apps can do this in several ways:
 
 The lowest-hanging fruit for app developers are situations where a user has to make multiple transactions, such as approving ERC20 tokens before making a swap or other action - with smart accounts, these separate calls can be batched in one transaction.
 
-In all cases, apps need to decide how they will handle users without smart accounts (because their wallet does not yet support them, or because they opt out). This might mean not supporting those users, or providing graceful alternative flows. These might look like existing experiences (for example "approve / swap"), but backwards compatibility is also offered by (for example) the new `experimental_fallback` parameter for Viem's `sendCalls` method ([PR](https://github.com/wevm/viem/pull/3648)).
+In all cases, apps need to decide how they will handle users without smart accounts (because their wallet does not yet support them, or because they opt out). This might mean not supporting those users, or providing graceful alternative flows. These might look like existing experiences (for example "approve / swap"), but backwards compatibility is also offered by (for example) the new `experimental_fallback` parameter for Viem's `sendCalls` method ([docs](https://viem.sh/docs/actions/wallet/sendCalls#compatibility-fallback)).
 
 The following are some apps which have integrated EIP-5792 to support batched calls and other wallet capabilities for their users:
 
@@ -24,3 +24,4 @@ The following are some apps which have integrated EIP-5792 to support batched ca
 - [Cabana](https://app.cabana.fi) - [example](/examples/apps/cabana)
 - [Superbridge](https://superbridge.app/) - [example](/examples/apps/superbridge)
 - [Vaults.fyi](https://app.vaults.fyi/) - [example](/examples/apps/vaults-fyi)
+- [Flaunch](https://flaunch.gg/) - [example](/examples/apps/flaunch)

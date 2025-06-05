@@ -115,6 +115,18 @@ export default defineConfig({
             text: "Vaults.fyi",
             link: "/examples/apps/vaults-fyi",
           },
+          {
+            text: "Flaunch",
+            link: "/examples/apps/flaunch",
+          },
+          {
+            text: "MetaMask",
+            link: "/examples/wallets/metamask",
+          },
+          {
+            text: "Ambire",
+            link: "/examples/wallets/ambire",
+          },
         ],
       },
     ],
