@@ -6,6 +6,7 @@ import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import { getBlockExplorerTxLink, getParsedError, notification } from "~~/utils/scaffold-eth";
 import { TransactorFuncOptions } from "~~/utils/scaffold-eth/contract";
 
+
 type TransactionFunc = (
   tx: (() => Promise<Hash>) | Parameters<SendTransactionMutate<Config, undefined>>[0],
   options?: TransactorFuncOptions,
@@ -73,10 +74,10 @@ export const useTransactor = (_walletClient?: WalletClient): TransactionFunc => 
         <TxnNotification message="Waiting for transaction to complete." blockExplorerLink={blockExplorerTxURL} />,
       );
 
-      transactionReceipt = await publicClient.waitForTransactionReceipt({
+      transactionReceipt = (await publicClient.waitForTransactionReceipt({
         hash: transactionHash,
         confirmations: options?.blockConfirmations,
-      });
+      })) as TransactionReceipt;
       notification.remove(notificationId);
 
       if (transactionReceipt.status === "reverted") throw new Error("Transaction reverted");
