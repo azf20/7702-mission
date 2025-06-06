@@ -1,5 +1,6 @@
 import * as chains from "viem/chains";
 
+
 export type ScaffoldConfig = {
   targetNetworks: readonly chains.Chain[];
   pollingInterval: number;
@@ -26,6 +27,10 @@ const scaffoldConfig = {
     chains.soneium,
     chains.mode,
     chains.scroll,
+    chains.berachain,
+    chains.sonic,
+    chains.tron,
+    chains.abstract,
     chains.polygon,
     chains.linea,
     chains.arbitrum,

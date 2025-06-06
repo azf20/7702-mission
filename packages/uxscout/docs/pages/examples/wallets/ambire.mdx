@@ -1,3 +1,7 @@
+---
+title: Ambire
+description: Web3 wallet with EIP-7702 smart account features and cross-chain support.
+---
 # Ambire
 
 ## Overview
@@ -23,4 +27,4 @@ Ambire's account settings provide a clear overview of your account's smart statu
 
 There is a clear action to Enable or Revoke, but this is a bit inefficient in the case where a different wallet's implementation is used (you need to make two transactions, once to revoke and then to enable, when you could simply make a single type 4 transaction to override with the Ambire wallet).
 
-Switching transactions are paid for by the user. Further testing suggests that the revocation may not currently be working as expected.
+Switching transactions are paid for by the user. Further testing identified some issues with Gnosis chain revocation, potentially related to an issue with RPC reliability.

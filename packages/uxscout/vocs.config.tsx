@@ -7,6 +7,7 @@ export default defineConfig({
   title: "UX Scout",
   iconUrl: "/icon.png",
   logoUrl: "/logo.png",
+  baseUrl: "https://uxscout.xyz",
   ogImageUrl:
     "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
   head() {
@@ -118,6 +119,10 @@ export default defineConfig({
           {
             text: "Flaunch",
             link: "/examples/apps/flaunch",
+          },
+          {
+            text: "Euler",
+            link: "/examples/apps/euler",
           },
           {
             text: "MetaMask",
