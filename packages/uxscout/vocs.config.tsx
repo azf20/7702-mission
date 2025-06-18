@@ -136,6 +136,10 @@ export default defineConfig({
             text: "Morpho",
             link: "/examples/apps/morpho",
           },
+          {
+            text: "Otim",
+            link: "/examples/apps/otim",
+          },
         ],
       },
     ],
