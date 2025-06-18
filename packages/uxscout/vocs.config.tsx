@@ -132,6 +132,10 @@ export default defineConfig({
             text: "Ambire",
             link: "/examples/wallets/ambire",
           },
+          {
+            text: "Morpho",
+            link: "/examples/apps/morpho",
+          },
         ],
       },
     ],

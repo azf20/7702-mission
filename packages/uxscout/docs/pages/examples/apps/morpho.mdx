@@ -1,0 +1,33 @@
+---
+title: Morpho
+description: Decentralized overcollateralized lending protocol.
+---
+# Morpho
+
+## Overview
+
+
+
+| Resource | Link |
+|:---------|:-----|
+| Application | [app.morpho.org](https://app.morpho.org/) |
+| Chains | 20+ networks |
+| Documentation | [docs](https://docs.morpho.org/) |
+
+## Bundling deposits
+
+*Updated on 2025-06-18*
+
+<video controls>
+  <source src="https://content.uxscout.xyz/morpho-deposit-2025-06-18.mp4" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
+
+- Bundling multiple deposits reduces the number of transactions a user has to make
+- Pending deposits (in a yet to be submitted bundle) are indicated in the UI
+- Approvals for the same token are also aggregated (for USDC in this case)
+- Exact amounts are used for approval
+- Morpho does not currently support EIP-5792, so approval and deposit requires two separate transactions even for smart accounts
+- Closing the slideout is a bit unintuitive, I found myself inadvertantly removing an item from the bundle
+- "Finalise bundle" on the second deposit only showed the second deposit, rather than the whole bundle as I expected
+- My first deposit transaction failed with an "out of gas" error.
