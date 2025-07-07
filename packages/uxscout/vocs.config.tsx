@@ -140,6 +140,10 @@ export default defineConfig({
             text: "Otim",
             link: "/examples/apps/otim",
           },
+          {
+            text: "YO",
+            link: "/examples/apps/yo",
+          },
         ],
       },
     ],
