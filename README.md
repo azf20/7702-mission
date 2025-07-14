@@ -6,7 +6,7 @@ This tracks work done for the [EIP-7702 UX & Developer Tooling Mission](https://
 
 ## 📱 7702-checker
 
-A dApp to check and upgrade Ethereum accounts to EIP-7702-enabled smart accounts. Built with Scaffold-ETH 2.
+A dApp to check EIP-7702 support for chains, and EIP-5792 support for wallets, with the ability to trigger a smart account upgrade if the wallet supports it. Built with Scaffold-ETH 2.
 
 Live at [7702checker.azfuller.com](https://7702-checker.azfuller.com)
 
@@ -14,16 +14,17 @@ Live at [7702checker.azfuller.com](https://7702-checker.azfuller.com)
 
 ## 📚 uxscout
 
-A documentation site tracking ux adoption & innovation across the ecosystem and showcasing demos of apps using the new capabilities.
+A documentation site tracking ux adoption & innovation across the ecosystem with an emphasis on EIP-7702 and showcasing demos of apps using the new capabilities.
 
 Live at [uxscout.xyz](https://uxscout.xyz)
 
-## 🧦 SuperSocks [WIP]
+## 🧦 SuperSocks
 
 Onchain sock shop, demonstrating different purchase flows leveraging EIP-7702, EIP-5792 and other approaches for improved UX.
 
-- Testnet: https://supersocks.vercel.app/
+- Mainnet: https://supersocks.uxscout.xyz/
 - [Code](https://github.com/azf20/supersocks)
+- [Blogpost](https://www.azfuller.com/blog/supersocks)
 
 ## Support and advocacy
 

@@ -144,6 +144,10 @@ export default defineConfig({
             text: "YO",
             link: "/examples/apps/yo",
           },
+          {
+            text: "Supersocks",
+            link: "/examples/apps/supersocks",
+          },
         ],
       },
     ],
